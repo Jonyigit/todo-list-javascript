@@ -1,0 +1,13 @@
+$breakpoints: (
+    "sm": 540px,
+    "md": 740px,
+    "lg": 1024px,
+);
+
+@mixin respond($breakpoint) {
+    @if map-has-key($breakpoints, $breakpoint) {
+        @media (max-width: map-get($breakpoints, $breakpoint)) {
+            @content;
+        }
+    }
+}

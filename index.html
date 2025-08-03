@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Todo List App — Kundalik Ishlaringizni Yaxshi Tashkil Qiling</title>
+        <meta
+            name="description"
+            content="Yengil, tez va interaktiv Todo List App yordamida ishlaringizni rejalang, eslatmalar yarating va vaqtni tejang."
+        />
+        <meta
+            name="keywords"
+            content="todo app, task manager, ishla rejalashtirish, eslatmalar, productivity, reja, to-do list"
+        />
+        <meta name="author" content="Sizning ismingiz yoki brendingiz" />
+        <meta name="robots" content="index, follow" />
+        <meta property="og:title" content="Todo List App — Kundalik Ishlaringizni Yaxshi Tashkil Qiling" />
+        <meta property="og:description" content="Oson va foydali to-do app yordamida vazifalarni samarali bajarish." />
+        <meta property="og:type" content="website" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Todo List App — Ishlaringizni Rejalang" />
+        <meta name="twitter:description" content="Ishlaringizni samarali bajarish uchun ajoyib to-do list ilovasi." />
+        <link rel="icon" href="./src/assets/icons/favicon.svg" type="image/svg+xml" />
+        <link rel="stylesheet" href="./src/styles/css/app.css" />
+        <script src="./src/js/app.js" defer></script>
+    </head>
+
+    <body>
+        <section id="todo-list-app">
+            <div class="container">
+                <div class="todo-app">
+                    <header class="todo-app__header">
+                        <div class="todo-app__top-bar">
+                            <h1>Todo</h1>
+                            <button class="top-bar__btn">
+                                <img src="./src/assets/icons/moon.svg" alt="moon icon" />
+                            </button>
+                        </div>
+                        <form class="todo-form" id="todo-form">
+                            <input type="text" placeholder="Create a new todo…" aria-label="Yangi vazifa kiriting" />
+                            <button class="todo-form__add-btn">Add</button>
+                        </form>
+                    </header>
+                    <div class="todo-app__body">
+                        <ul class="todo-list"></ul>
+                        <footer class="todo-app__footer">
+                            <div class="todo-app-footer__container">
+                                <span class="todo-footer__count">6 items left</span>
+                                <ul class="todo-footer__controls">
+                                    <li>
+                                        <button class="filter-btn filter-btn--active" data-filter="all">All</button>
+                                    </li>
+                                    <li>
+                                        <button class="filter-btn" data-filter="active">Active</button>
+                                    </li>
+                                    <li>
+                                        <button class="filter-btn" data-filter="completed">Completed</button>
+                                    </li>
+                                </ul>
+                                <button class="todo-footer__clear-completed">Clear Completed</button>
+                            </div>
+                            <ul class="todo-footer__controls-media">
+                                <li>
+                                    <button class="filter-btn filter-btn--active" data-filter="all">All</button>
+                                </li>
+                                <li>
+                                    <button class="filter-btn" data-filter="active">Active</button>
+                                </li>
+                                <li>
+                                    <button class="filter-btn" data-filter="completed">Completed</button>
+                                </li>
+                            </ul>
+                        </footer>
+                    </div>
+                </div>
+                <h4 class="todo-copyright">Drag and drop to reorder list</h4>
+            </div>
+        </section>
+        <div class="toaster-wrapper" id="toasterWrapper"></div>
+    </body>
+</html>

@@ -1,0 +1,219 @@
+.todo-app__body {
+    width: 100%;
+    box-shadow: 0px 35px 50px -15px var(--shadow);
+    border-radius: 5px;
+    overflow: hidden;
+    user-select: none;
+    @include respond("sm") {
+        box-shadow: none;
+    }
+    .todo-list {
+        display: flex;
+        flex-direction: column;
+        max-height: 450px;
+        overflow-y: auto;
+        user-select: none;
+        background: var(--primary-color);
+        .todo-list__item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 24px;
+            border-bottom: 1px solid var(--color);
+            transition: transform 0.2s ease, background-color 0.2s ease;
+            @include respond("sm") {
+                padding: 20px 16px;
+            }
+            &.dragging {
+                opacity: 0.5;
+                background-color: var(--secondary-color);
+            }
+            &:hover {
+                .todo-list__delete-btn {
+                    opacity: 1;
+                    visibility: visible;
+                }
+            }
+            .todo-list__delete-btn {
+                opacity: 0;
+                visibility: hidden;
+                @include respond("lg") {
+                    opacity: 1;
+                    visibility: visible;
+                }
+                img {
+                    @include respond("lg") {
+                        width: 12px;
+                        height: 12px;
+                    }
+                }
+            }
+            .todo-list__task {
+                display: flex;
+                justify-content: start;
+                align-items: center;
+                gap: 24px;
+                flex-grow: 1;
+                @include respond("sm") {
+                    gap: 12px;
+                }
+                input[type="checkbox"] {
+                    -webkit-appearance: none;
+                    appearance: none;
+                    width: 24px;
+                    height: 24px;
+                    border: 1px solid var(--color);
+                    border-radius: 100%;
+                    cursor: pointer;
+                    position: relative;
+                    transition: all 0.3s ease;
+                    outline: none;
+                    @include respond("sm") {
+                        width: 20px;
+                        height: 20px;
+                    }
+
+                    &:checked ~ span {
+                        text-decoration: line-through;
+                        color: var(--greys);
+                    }
+
+                    &:checked {
+                        background: linear-gradient(135deg, #55ddff 0%, #c058f3 100%);
+                    }
+
+                    &::before {
+                        content: "";
+                        background-image: url("/src/assets/icons/check.svg");
+                        background-repeat: no-repeat;
+                        position: absolute;
+                        left: 50%;
+                        top: 50%;
+                        transform: translate(-50%, -50%);
+                        width: 10px;
+                        height: 8px;
+                        pointer-events: none;
+                        display: none;
+                        @include respond("sm") {
+                            background-image: url("/src/assets/icons/check-media.svg");
+                        }
+                    }
+
+                    &:checked::before {
+                        display: block;
+                        z-index: 1;
+                    }
+                }
+                span {
+                    font-weight: 400;
+                    font-size: 18px;
+                    letter-spacing: -0.25px;
+                    color: var(--text);
+                    word-break: break-word;
+                    max-width: 400px;
+                    line-height: 25px;
+                    @include respond("sm") {
+                        font-size: 12px;
+                        letter-spacing: -0.17px;
+                    }
+                }
+            }
+        }
+    }
+    .todo-app__footer {
+        display: flex;
+        flex-direction: column;
+        .todo-app-footer__container {
+            padding: 16px 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: var(--primary-color);
+            border-bottom-left-radius: 5px;
+            border-bottom-right-radius: 5px;
+            @include respond("sm") {
+                padding: 16px 20px 20px 20px;
+                margin-bottom: 16px;
+            }
+            .todo-footer__count {
+                font-weight: 400;
+                font-size: 14px;
+                letter-spacing: -0.19px;
+                color: var(--secondary-color);
+                @include respond("sm") {
+                    font-size: 12px;
+                    letter-spacing: -0.17px;
+                }
+            }
+            .todo-footer__controls {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                max-width: 166px;
+                width: 100%;
+                @include respond("sm") {
+                    display: none;
+                }
+                li {
+                    &:hover {
+                        .filter-btn {
+                            color: var(--text);
+                        }
+                    }
+                    .filter-btn {
+                        font-weight: 700;
+                        font-size: 14px;
+                        letter-spacing: -0.19px;
+                        color: var(--secondary-color);
+                        &.filter-btn--active {
+                            color: var(--active);
+                        }
+                    }
+                }
+            }
+            .todo-footer__clear-completed {
+                font-weight: 400;
+                font-size: 14px;
+                letter-spacing: -0.19px;
+                color: var(--secondary-color);
+                @include respond("sm") {
+                    font-size: 12px;
+                    letter-spacing: -0.17px;
+                }
+                &:hover {
+                    color: var(--text);
+                }
+            }
+        }
+        .todo-footer__controls-media {
+            padding: 15px 0px;
+            max-width: 100%;
+            background: var(--primary-color);
+            box-shadow: 0px 35px 50px -15px var(--shadow);
+            display: none;
+            gap: 19px;
+            border-radius: 5px;
+            @include respond("sm") {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+            li {
+                &:hover {
+                    .filter-btn {
+                        color: var(--text);
+                    }
+                }
+                .filter-btn {
+                    font-weight: 700;
+                    font-size: 14px;
+                    letter-spacing: -0.19px;
+                    color: var(--secondary-color);
+                    &.filter-btn--active {
+                        color: var(--active);
+                    }
+                }
+            }
+        }
+    }
+}

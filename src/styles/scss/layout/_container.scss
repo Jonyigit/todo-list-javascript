@@ -1,0 +1,56 @@
+body {
+    font-family: "Josefin Sans", sans-serif;
+    min-height: 100vh;
+    background-color: var(--background);
+    background-image: url("/src/assets/images/background-image-light.jpg");
+    background-repeat: no-repeat;
+    background-size: contain;
+    @include respond("md") {
+        background-image: url("/src/assets/images/background-image-light-media.jpg");
+    }
+}
+
+::-webkit-scrollbar {
+    width: 5px;
+    background: var(--primary-color);
+    @include respond("sm") {
+        width: 2px;
+    }
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--active);
+    border-radius: 10px;
+}
+
+#todo-list-app {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    padding: 70px 0px 52px 0px;
+    @include respond("sm") {
+        padding: 48px 0px 72px 0px;
+    }
+    .container {
+        max-width: 588px;
+        width: 100%;
+        padding: 0px 24px;
+        .todo-app {
+            display: flex;
+            flex-direction: column;
+        }
+        .todo-copyright {
+            font-weight: 400;
+            font-size: 14px;
+            letter-spacing: -0.19px;
+            text-align: center;
+            color: var(--secondary-color);
+            margin-top: 50px;
+            @include respond("sm") {
+                margin-top: 40px;
+            }
+        }
+    }
+}

@@ -1,0 +1,14 @@
+.dark-mode {
+    --primary-color: #25273d;
+    --background: #171823;
+    --greys: #4d5067;
+    --secondary-color: #5b5e7e;
+    --text: #c8cbe7;
+    --placeholder: #767992;
+    --color: #393a4b;
+    --shadow: #00000080;
+    background-image: url("/src/assets/images/background-image-dark.jpg");
+    @include respond("md") {
+        background-image: url("/src/assets/images/background-image-dark-media.jpg");
+    }
+}

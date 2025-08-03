@@ -1,0 +1,82 @@
+.toaster-wrapper {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    z-index: 9999;
+    width: max-content;
+    @include respond("sm") {
+        gap: 5px;
+    }
+}
+
+.toaster {
+    background: var(--primary-color);
+    box-shadow: 0px 35px 50px -15px var(--shadow);
+    max-width: 300px;
+    width: max-content;
+    padding: 12px 16px;
+    border-radius: 10px;
+    opacity: 0;
+    transform: translateY(-20px);
+    animation: slideInFade 0.4s ease forwards;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    @include respond("sm") {
+        gap: 4px;
+        padding: 10px 14px;
+        border-radius: 5px;
+    }
+
+    .toaster-content {
+        display: flex;
+        justify-content: start;
+        align-items: center;
+        gap: 8px;
+    }
+
+    &.hide {
+        animation: slideOutFade 0.4s ease forwards;
+    }
+
+    img {
+        width: 20px;
+        height: 20px;
+    }
+
+    p {
+        color: var(--text);
+        font-size: 14px;
+        font-weight: 600;
+        margin: 0;
+        @include respond("sm") {
+            font-size: 10px;
+        }
+    }
+}
+
+@keyframes slideInFade {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideOutFade {
+    from {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    to {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+}
